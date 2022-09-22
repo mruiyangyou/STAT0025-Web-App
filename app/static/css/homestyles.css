@@ -1,0 +1,117 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat-Bold";
+   
+}
+
+h3 {
+    
+    font-size: 1.5rem;
+    
+}
+
+/* nav */
+.nav-text {
+    font-family: 'Nanum Gothic';
+    color: #213FFF;
+}
+
+.nav-title {
+    font-family: 'Oswald';
+
+}
+/* title */
+.title-heading {
+    font-family: 'Oswald';
+    font-size: 5rem;
+    line-height: 1.5;
+    font-weight: 900;
+
+}
+
+.titlecolor{
+    background-color: #213FFF;
+    color: white;
+}
+
+.container-fluid {
+    padding: 3% 15% 7%;
+}
+
+.title-img {
+    width: 25%; 
+    transform: rotate(25deg);
+    
+    position: absolute;
+    left: 65%;
+    bottom: 10%;
+ }
+
+ .title-text {
+    padding-top: 1ch;
+    font-size: 1.2rem;
+    font-family: 'Nanum Gothic';
+ }
+
+/* Features */
+
+ #features {
+    padding: 7% 7%;
+    background-color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-p {
+    color: #8f8f8f;
+    font-family: 'Nanum Gothic';
+}
+
+.feature-icon {
+    color: #213FFF;
+    margin-bottom: 1rem;
+}
+
+.feature-icon:hover {
+    color: #21aaff;
+}
+
+.feature-box {
+    text-align: center;
+    padding: 5%;
+}
+
+
+/* cta */
+#cta {
+    background-color: #213FFF;
+    text-align: center;
+    padding: 5% 15%;
+}
+
+.cta-text {
+    font-size: 3rem;
+    color: white;
+    font-family:'Oswald' ;
+    padding-bottom: 1ch;
+}
+
+/* footer */
+
+#footer {
+    background-color: #fff;
+    text-align: center;
+    padding: 5% 30% 2%;
+}
+
+@media (max-width:1028px) {
+    .title-img {
+       position: static;
+       transform: rotate(0);
+       width: 60%;
+
+    }
+
+    #title {
+        text-align: center;
+    }
+}

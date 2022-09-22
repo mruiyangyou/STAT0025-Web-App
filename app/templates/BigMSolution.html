@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/eb511fb6e6.js" crossorigin="anonymous"></script>
+    <!-- style -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/headers/">
+    <!-- <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@100;400;900&family=Nanum+Gothic&family=Oswald&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gs_style.css') }}">
+    <title>BigMSolution</title>
+</head>
+<body>
+    <section id = 'navigation'>
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+              <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+                <span class="fs-4 nav-title">STAT0025 Calculator</span>
+              </a>
+        
+              <ul class="nav nav-pills nav-text">
+                <li class="nav-item"><a href="{{ url_for('toIndexPage') }}" class="nav-link" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="{{ url_for('toBigMPage') }}" class="nav-link">BigM Solution</a></li>
+                <li class="nav-item"><a href="{{ url_for('toGraphicPage') }}" class="nav-link">Graphic Solution</a></li>
+                <li class="nav-item"><a href="{{ url_for('toSimplexPage') }}" class="nav-link">Simplex Visualization</a></li>
+                <li class="nav-item"><a href="{{ url_for('toStochasticPage') }}" class="nav-link">Markov Dynamic Programming Calculator</a></li>
+              </ul>
+            </header>
+        </div>
+    </section>
+
+    <section id = 'title'>
+        <div class = 'title-heading'>
+            <h1>BigM Solution</h1>
+        </div>
+
+        <div class = 'input-cell'>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Objective</label>
+              <input type="text" class="form-control" id="input1" name = "input1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">String('min'/'max')</div> 
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Number of products:</label>
+              <input type="text" class="form-control" id="input2" name = "input2">
+              <div id="emailHelp" class="form-text">Integer</div> 
+            </div>
+
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Coefficient of cost function[list]:</label>
+              <input type="text" class="form-control" id="input3" name = "input3" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">Python one dimension list</div> 
+            </div>
+
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Resource Coefficients[[list]]:</label>
+              <input type="text" class="form-control" id="input4" name = "input4" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">Python two dimension list</div> 
+            </div>
+
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Resource Limit:</label>
+              <input type="text" class="form-control" id="input5" name = "input5" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">Python one dimension list</div> 
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Constraint Characters</label>
+                <input type="text" class="form-control" id="input6" name="input6" aria-describedby="emailHelp">
+               <div id="emailHelp" class="form-text">Python one dimension list</div> 
+            </div>
+                   
+          <button type="submit" class="btn btn-primary btn-submit" id = 'btn' onclick="clickCal();">Submit</button>
+             
+          <div class = 'output mb-3' id = 'hr'>
+                <hr style="color: #213FFF; border: 2px solid;">
+          </div>
+
+            <div class = 'output mb-3'>
+                <output>
+                    Output:
+                </output>
+            </div>
+
+            <div class = 'output mb-3' id = 'Simplex-output'>
+                
+            </div>
+
+            <div class = 'output mb-3'>
+              <output>
+                  Output Download Link:
+              </output>
+            </div>
+
+          <div class = 'output mb-3 download' id = 'download'>
+              <!-- <a href="{{ url_for('static', filename='markovfiles/reward_df.xlsx') }}" download>Download link</a> -->
+          </div>
+        </div>
+
+    </section>
+</body>
+
+<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+<script>
+
+function clickCal() {
+
+  var sever_data = [
+    {'input1': document.getElementsByName('input1')[0].value},
+    {'input2': document.getElementsByName('input2')[0].value},
+    {'input3': document.getElementsByName('input3')[0].value},
+    {'input4': document.getElementsByName('input4')[0].value},
+    {'input5': document.getElementsByName('input5')[0].value},
+    {'input6': document.getElementsByName('input6')[0].value}
+    ]
+  console.log(sever_data)
+  $.ajax({ 
+    type : "POST",  //提交方式  
+    url: '/BigMSolution/bigMcal',
+    data: JSON.stringify(sever_data),
+    contentType: "application/json",
+    dataType: 'json',
+          // type : "get",  //提交方式  
+          // url : "https://stat0025-page.herokuapp.com/bigMcal?input1=" + $("#input1").val() + "&input2=" + $("#input2").val() +
+          //         "&input3=" + $("#input3").val() + "&input4=" + $("#input4").val() + "&input5=" + $("#input5").val() +
+          //         "&input6=" + $("#input6").val(),
+    success : function(result) {//返回数据根据结果进行相应的处理 
+        // var json = JSON.parse(result)
+        // console.log(json, json.path)
+        $('#Simplex-output').prepend($('<p style = "color: #213FFF">' + result.output + '</p>'))
+        // var path = "{{ url_for('static', filename='" + json.path + "') }}"
+        // console.log(path)
+        // $('#download').prepend($('<a href="'+"{{ url_for('static', filename='markovfiles/reward_df.xlsx') }}"+'" download style = "margin-left:10px">'+'Download File'+'</a>'))
+        $('#download').prepend($('<a href="' + result.path + '" download style = "margin-left:10px">'+'Download File'+'</a>'))
+        // $('#download').prepend($('<a>',{id:'markovfile',href: "{{ url_for('StoCalIndex') }}"}))
+    }  
+});
+}
+  // $("#btn").click(function(){
+  //     $.ajax({  
+  //         type : "get",  //提交方式  
+  //         url : "https://stat0025-page.herokuapp.com/bigMcal?input1=" + $("#input1").val() + "&input2=" + $("#input2").val() +
+  //                 "&input3=" + $("#input3").val() + "&input4=" + $("#input4").val() + "&input5=" + $("#input5").val() +
+  //                 "&input6=" + $("#input6").val(),
+  //         success : function(result) {//返回数据根据结果进行相应的处理 
+  //             var json = JSON.parse(result)
+  //             console.log(json, json.path)
+  //             $('#Simplex-output').prepend($('<p style = "color: #213FFF">' + json.output + '</p>'))
+  //             // var path = "{{ url_for('static', filename='" + json.path + "') }}"
+  //             // console.log(path)
+  //             // $('#download').prepend($('<a href="'+"{{ url_for('static', filename='markovfiles/reward_df.xlsx') }}"+'" download style = "margin-left:10px">'+'Download File'+'</a>'))
+  //             $('#download').prepend($('<a href="' + json.path + '" download style = "margin-left:10px">'+'Download File'+'</a>'))
+  //             // $('#download').prepend($('<a>',{id:'markovfile',href: "{{ url_for('StoCalIndex') }}"}))
+  //         }  
+  //     });
+  // })
+</script>
+</html>

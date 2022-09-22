@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/eb511fb6e6.js" crossorigin="anonymous"></script>
+    <!-- style -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/headers/">
+    <!-- <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/homestyles.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/headers.css') }}">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@100;400;900&family=Nanum+Gothic&family=Oswald&family=Sacramento&display=swap" rel="stylesheet">
+    <title>STAT00225-Caculator</title>
+</head>
+
+<body>
+    <!-- navigation bar -->
+    <section id = 'title'>
+      <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+            <span class="fs-4 nav-title">STAT0025 Calculator</span>
+          </a>
+    
+          <ul class="nav nav-pills nav-text">
+            <li class="nav-item"><a href="{{ url_for('toIndexPage') }}" class="nav-link" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="{{ url_for('toBigMPage') }}" class="nav-link">BigM Solution</a></li>
+            <li class="nav-item"><a href="{{ url_for('toGraphicPage') }}" class="nav-link">Graphic Solution</a></li>
+            <li class="nav-item"><a href="{{ url_for('toSimplexPage') }}" class="nav-link">Simplex Viusalization</a></li>
+            <li class="nav-item"><a href="{{ url_for('toStochasticPage') }}" class="nav-link">Markov Dynamic Programming Calculator</a></li>
+          </ul>
+        </header>
+    </div>
+    <!-- title -->
+    <div class = 'row titlecolor container-fluid'>
+        <div class="col-lg-6">
+            <h1 class = 'title-heading'>STAT0025 Cheating Tool</h1>
+            <div class = 'title-text'>
+            <p>This tools can easily help understand the process of calculation, save your time when you are doing the iteration and provide 
+                you with the accurate answers to check. It is comparised by three parts.
+            </p>
+            <ul>
+                <li>
+                    Graphic Solution: Solve optimization problems from two parties
+                </li>
+                <li>
+                    Simplex Viusalization: Show each step of the caulcation process
+                </li>
+                <li>
+                    Markov dynamic programming: Quickly calculate the answers.
+                </li>
+            </ul>
+            </div>
+        </div> 
+        
+        <div class="col-lg-6">
+            <img src="{{ url_for('static', filename='imgs/research.jpg') }}" class = "title-img" alt="iphone-mockup">
+          </div>
+    </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features">
+    
+        <div class = 'row'>
+          <div class="col-lg-4 feature-box">
+            <i class="fa-solid fa-circle-check feature-icon fa-4x"></i>
+            <h3>Easy to use.</h3>
+            <p class = 'feature-p'>So easy to use, type input give answers</p>
+          </div>
+          <div class="col-lg-4 feature-box">
+            <i class="fa-solid fa-bullseye feature-icon fa-4x"></i>
+            <h3>Accurate</h3>
+            <p class = 'feature-p'>It strictly follow the process on the note</p>
+          </div>
+          <div class="col-lg-4 feature-box">
+            <i class="fa-solid fa-heart feature-icon fa-4x"></i>
+            <h3>Quick to implement</h3>
+            <p class = 'feature-p'>It takes seconds to give the answers</p>
+          </div>
+  
+        </div>
+    
+    </section>
+      
+    <section id="cta">
+
+        <h3 class="cta-text">Start your comfortable learning journey with this website</h3>
+        <button type="button" class = 'btn btn-dark btn-lg db' onclick="window.location.href='https://w3docs.com';">
+            <i class="fa-brands fa-github"></i> Github</button>
+        <button type="button" class = 'btn btn-dark btn-lg db' onclick="window.location.href='https://w3docs.com';">
+            <i class="fa-solid fa-bookmark"></i> Notes</button>
+  
+    </section>
+
+    
+    <footer id="footer">
+        <i class="fa-brands fa-twitter ft-img"></i>
+        <i class="fa-brands fa-facebook-f ft-img"></i>
+        <i class="fa-brands fa-instagram ft-img"></i>
+        <i class="fa-solid fa-envelope ft-img"></i>
+        <p class = 'ft-text'>© Copyright RuiyangYou</p>
+    
+    </footer>
+
+
+
+
+
+    
+</body>
+</html>

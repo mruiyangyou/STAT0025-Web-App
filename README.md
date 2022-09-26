@@ -35,7 +35,7 @@ The input should looks like this:
 
 Input:
 
-![GraphicSolution](IntroImage/graphicSol.png)
+![GraphicSolution](IntroImage/grapicSol.png)
 
 ### Simplex
 
@@ -45,7 +45,7 @@ Simplex page is really similar to BigM without the last character line.
 
 input:
 
-![Markov Dynamic Programming](IntroImage/bigM.png)
+![Markov Dynamic Programming](IntroImage/markov.png)
 
 More advanced adversion is still under developemt. This calculation only accepts from each state it can move to all the next state in next phase.
 

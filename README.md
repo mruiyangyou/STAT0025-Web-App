@@ -29,13 +29,13 @@ You can access github page, markdown files and contact me in the homepage. There
 
 The input should looks like this:
 
-![BigM Input](Introimage/bigM.png)
+![BigM Input](IntroImage/bigM.png)
 
 ### Graphic Solution
 
 Input:
 
-![GraphicSolution](Introimage/graphicSol.png)
+![GraphicSolution](IntroImage/graphicSol.png)
 
 ### Simplex
 
@@ -45,7 +45,7 @@ Simplex page is really similar to BigM without the last character line.
 
 input:
 
-![Markov Dynamic Programming](Introimage/markov.png)
+![Markov Dynamic Programming](IntroImage/bigM.png)
 
 More advanced adversion is still under developemt. This calculation only accepts from each state it can move to all the next state in next phase.
 
@@ -85,7 +85,7 @@ Run the following line in the terminal/bash
 
 ### Output format
 
-![Output](Introimage/output.png)
+![Output](IntroImage/output.png)
 
 ## Notice
 
